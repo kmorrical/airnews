@@ -1,0 +1,86 @@
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+  font-size: rem(100px);
+  font-weight: 900;
+  letter-spacing: rem(-2px);
+
+  @media (max-width: $mantine-breakpoint-md) {
+    font-size: rem(50px);
+  }
+}
+
+.subtitle-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 28px;
+  align-items: center;
+  background-color: cornflowerblue;
+
+  > div {
+    display: flex;
+  }
+}
+
+.goodwin-link {
+  align-self: flex-end;
+}
+
+.icon-container {
+  margin-top: 16px;
+}
+
+.card-container {
+  padding: 24px;
+}
+
+.article-card {
+  justify-content: space-between;
+}
+
+.hamburger-panel-closed {
+  display: none;
+}
+
+.hamburger-panel-opened {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+}
+
+.category-container {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  z-index: 4;
+  background-color: white;
+  opacity: 1 !important;
+  position: absolute;
+  height: 100%;
+
+  a {
+    &:hover {
+      background-color: whitesmoke;
+    }
+  }
+}
+
+.burger-overlay {
+  background-color: gray;
+  opacity: 0.85;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+
+.modal-image {
+  border-radius: 6px;
+}
