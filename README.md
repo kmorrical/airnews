@@ -1,4 +1,4 @@
-# JetStream - A news app project
+# JetStream - a news app project
 
 For this project, I decided to display top articles on aviation using a NextJs app (as requested). If you click on the displayed articles, you may see that it opens a new dialog with additional information and a link to the NYT article. I also decided to take this a step further and add something a little special. I added a hamburger menu with different queries you can select to display different articles.
 
