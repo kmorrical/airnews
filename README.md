@@ -16,9 +16,13 @@ For this project, I decided to display top articles on aviation using a NextJs a
 
 ## npm scripts
 
-### Build and dev scripts
+### Set up instructions
 
-- `npm run dev` – start dev server
+- clone repo on to your machine
+- go into repo's directory on your machine in terminal
+- run `npm i`
+- run `npm run dev` – to start dev server
+- terminal will output what port to use, go to that port in browser to view page
 
 ### Testing scripts
 
