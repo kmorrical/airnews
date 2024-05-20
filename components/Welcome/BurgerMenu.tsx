@@ -27,6 +27,7 @@ export function BurgerMenu(props: Props) {
             pt={16}
             pb={16}
             key={index}
+            data-testid="burger-listitem"
             onClick={() => {
               props.handleItemClick(item);
             }}

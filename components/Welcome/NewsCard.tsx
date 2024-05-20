@@ -66,6 +66,7 @@ export function NewsCard(props: Props) {
         mt="md"
         radius="md"
         onClick={() => props.setSelectedArticle(props.article)}
+        data-testid="readmore-button"
       >
         Read More
       </Button>

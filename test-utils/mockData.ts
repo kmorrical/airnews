@@ -11,6 +11,7 @@ export const mockData = [
     web_url: 'Google.com',
     abstract: 'Article 1 summary',
     subsection_name: 'SPORTS',
+    lead_parapragh: 'This is a paragraph',
   },
   {
     headline: { main: 'New Alaska Air credit card' },

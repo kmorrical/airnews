@@ -1,4 +1,4 @@
-import { render, screen, userEvent } from '@/test-utils';
+import { render, screen, userEvent, waitFor } from '@/test-utils';
 import { Welcome } from './Welcome';
 import { mockData } from '@/test-utils/mockData';
 
@@ -30,5 +30,14 @@ describe('Welcome component', () => {
 
     await userEvent.click(buttonElement);
     expect(panelElement).toHaveClass('hamburger-panel-closed');
+  });
+  it('opens modal when read more button is clicked', async () => {
+    render(<Welcome articles={mockData} />);
+    const readmore = screen.getAllByTestId('readmore-button')[0];
+    await userEvent.click(readmore);
+
+    await waitFor(() => expect(screen.getByText('The New York Times')).toBeInTheDocument(), {
+      timeout: 100,
+    });
   });
 });

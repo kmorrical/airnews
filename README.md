@@ -18,16 +18,8 @@ For this project, I decided to display top articles on aviation using a NextJs a
 
 ### Build and dev scripts
 
-- `dev` – start dev server
-- `build` – bundle application for production
-- `analyze` – analyzes application bundle with [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
+- `npm run dev` – start dev server
 
 ### Testing scripts
 
 - `npm run test components` – runs unit tests on components
-
-### Other scripts
-
-- `storybook` – starts storybook dev server
-- `storybook:build` – build production storybook bundle to `storybook-static`
-- `prettier:write` – formats all files with Prettier

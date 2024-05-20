@@ -10,7 +10,7 @@ const customJestConfig = {
     '^@/components/(.*)$': '<rootDir>/components/$1',
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
   },
-  testEnvironment: 'jest-environment-jsdom',
+  testEnvironment: 'node',
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
   collectCoverage: true,
@@ -22,9 +22,12 @@ const customJestConfig = {
   ],
   coverageThreshold: {
     global: {
-      lines: 5000,
-      statements: 5000,
+      lines: 100,
+      statements: 100,
     },
+  },
+  globals: {
+    fetch: global.fetch,
   },
 };
 
