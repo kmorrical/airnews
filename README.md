@@ -1,17 +1,12 @@
-# Mantine Next.js template
+# JetStream - A news app project 
 
-This is a template for [Next.js](https://nextjs.org/) app router + [Mantine](https://mantine.dev/).
-If you want to use pages router instead, see [next-pages-template](https://github.com/mantinedev/next-pages-template).
+For this project, I decided to display top articles on aviation using a NextJs app (as requested). If you click on the displayed articles, you may see that it opens a new dialog with additional information and a link to the NYT article. I also decided to take this a step further and add something a little special. I added a hamburger menu with different queries you can select to display different articles. 
 
-## Features
+## Special Notes!
 
-This template comes with the following features:
+- This was my first time using NextJs! I have been coding in React for 6.5 years and have never used Next, so please keep that in mind :)
+- This was also my first time using Mantine (which I found awesome, btw). I found the setup a little confusing so I used a Mantine template for this project. 
 
-- [PostCSS](https://postcss.org/) with [mantine-postcss-preset](https://mantine.dev/styles/postcss-preset)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Storybook](https://storybook.js.org/)
-- [Jest](https://jestjs.io/) setup with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-- ESLint setup with [eslint-config-mantine](https://github.com/mantinedev/eslint-config-mantine)
 
 ## npm scripts
 
