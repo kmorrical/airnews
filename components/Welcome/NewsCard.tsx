@@ -9,6 +9,7 @@ import { getArticleImage } from '@/utils/getArticleImage';
 interface Props {
   article: Article;
   setSelectedArticle: (articleItem: Article) => void;
+  isDisabled?: boolean;
 }
 
 export function NewsCard(props: Props) {
@@ -25,6 +26,7 @@ export function NewsCard(props: Props) {
       bg="whitesmoke"
     >
       <Card.Section>
+        {/* if there is no article image, just use plane icon */}
         {articleImage ? (
           <Image
             src={`http://www.nytimes.com/${articleImage}`}
@@ -42,21 +44,24 @@ export function NewsCard(props: Props) {
       <Group justify="space-between" mt="md" mb="xs">
         <Text fw={500}>{props.article?.headline?.main}</Text>
         <div className="card-badge-container">
-          <Badge color="#154a3a">{props.article?.section_name ?? 'GENERAL'}</Badge>
+          <Badge color="#154a3a" mr={8}>
+            {props.article?.section_name ?? 'GENERAL'}
+          </Badge>
+          {/* if there is no subsection, do not render that badge */}
           {props.article?.subsection_name && (
-            <Badge color="darkblue" ml={8} data-testid="subsection_badge">
+            <Badge color="darkblue" data-testid="subsection_badge">
               {props.article?.subsection_name}
             </Badge>
           )}
         </div>
       </Group>
-
       <Text size="sm" c="dimmed">
         {props.article?.abstract}
       </Text>
       <Button
         type="button"
         color="blue"
+        disabled={props.isDisabled}
         fullWidth
         mt="md"
         radius="md"

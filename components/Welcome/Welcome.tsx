@@ -16,18 +16,34 @@ interface Props {
 
 export function Welcome(props: Props) {
   const [burgerOpened, { close, toggle }] = useDisclosure();
+  // add media query for making styles more response
   const isAboveXs = useMediaQuery('(min-width: 480px)');
+  // use this hook/state object to:
+  // (a) push data into modal
+  // (b) check if modal is open/closed
   const [selectedModalArticle, setSelectedModalArticle] = useState<Article | undefined>();
   const [selectedCategory, setSelectedCategory] = useState<string>('Aviation');
+  // prefill below state object with data from first fetch (from server)
   const [articleData, setArticleData] = useState(props.articles);
+  // is loading allows us to set loading styles on card container
+  const [isLoading, setIsLoading] = useState(false);
 
+  // fetch data client side when user changes article category
   const fetchData = async (category: string) => {
     const newData = await getData(category);
+    setIsLoading(false);
     return setArticleData(newData);
   };
 
+  // clicking item in hamburger menu:
+  // (a) changes styles for item in menu (changes text color)
+  // (b) sets loading state (opacity dropped on old data)
+  // (c) disables button clicks on old data
+  // (d) fetches new data
+  // (e) closes hamburger menu
   const handleItemClick = (category: string) => {
     setSelectedCategory(category);
+    setIsLoading(true);
     fetchData(category);
     close();
   };
@@ -65,13 +81,20 @@ export function Welcome(props: Props) {
         selectedCategory={selectedCategory}
         handleItemClick={handleItemClick}
       />
-      <div className="card-container">
+      <div
+        className={`card-container ${isLoading && 'card-container-loading'}`}
+        data-testid="card-container"
+      >
         <Grid>
           {articleData &&
             articleData.length > 0 &&
             articleData.map((item: Article, index: number) => (
               <Grid.Col span={{ xs: 12, sm: 6, lg: 3 }} key={index} data-testid="article-card">
-                <NewsCard article={item} setSelectedArticle={() => setSelectedModalArticle(item)} />
+                <NewsCard
+                  article={item}
+                  setSelectedArticle={() => setSelectedModalArticle(item)}
+                  isDisabled={isLoading}
+                />
               </Grid.Col>
             ))}
         </Grid>

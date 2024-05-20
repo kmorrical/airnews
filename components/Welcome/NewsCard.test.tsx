@@ -26,9 +26,3 @@ describe('Card component', () => {
     expect(screen.queryByTestId('subsection_badge')).toBeNull();
   });
 });
-
-//   it('opens modal when read more is clicked', () => {
-//     render(<NewsCard article={mockData[1]} setSelectedArticle={() => jest.fn()} />);
-//     expect(screen.queryByTestId('subsection_badge')).toBeNull();
-//   });
-//test

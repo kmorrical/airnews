@@ -38,6 +38,10 @@
   padding: 24px;
 }
 
+.card-container-loading {
+  opacity: 0.2;
+}
+
 .article-card {
   justify-content: space-between;
 }

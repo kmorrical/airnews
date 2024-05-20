@@ -29,6 +29,7 @@ export function MoreInfoModal(props: Props) {
         <Text fw={600} size="md" mb={16}>
           {props.article?.headline?.main}
         </Text>
+        {/* if there is no author, do not render this */}
         {props.article?.byline?.original && (
           <Text size="xs" data-testid="byline-text">
             by {props.article?.byline?.original}
@@ -43,6 +44,7 @@ export function MoreInfoModal(props: Props) {
         <Text size="sm" c="darkblue" ta="center">
           Like what you&apos;re reading? See more if this article at
         </Text>
+        {/* this links out to NYT source */}
         <Anchor
           href={props.article?.web_url}
           target="_blank"
