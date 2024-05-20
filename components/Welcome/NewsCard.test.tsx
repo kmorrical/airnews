@@ -31,3 +31,4 @@ describe('Card component', () => {
 //     render(<NewsCard article={mockData[1]} setSelectedArticle={() => jest.fn()} />);
 //     expect(screen.queryByTestId('subsection_badge')).toBeNull();
 //   });
+//test

@@ -2,13 +2,11 @@
 
 import { Anchor } from '@mantine/core';
 import '../../styles/styles.css';
-import { Dispatch, SetStateAction } from 'react';
 
 interface Props {
   opened: boolean;
   selectedCategory: string;
-  setSelectedCategory: Dispatch<SetStateAction<string>>;
-  close: () => void;
+  handleItemClick: (category: string) => void;
 }
 
 export function BurgerMenu(props: Props) {
@@ -30,8 +28,7 @@ export function BurgerMenu(props: Props) {
             pb={16}
             key={index}
             onClick={() => {
-              props.setSelectedCategory(item);
-              props.close();
+              props.handleItemClick(item);
             }}
           >
             {item.toUpperCase()}

@@ -8,6 +8,7 @@ import { Article } from '@/types/Article';
 import { MoreInfoModal } from './MoreInfoModal';
 import { GoodwinLogoAnchor } from './GoodwinLogoAnchor';
 import { BurgerMenu } from './BurgerMenu';
+import { getData } from '@/utils/dataFetching';
 
 interface Props {
   articles: Article[];
@@ -17,7 +18,19 @@ export function Welcome(props: Props) {
   const [burgerOpened, { close, toggle }] = useDisclosure();
   const isAboveXs = useMediaQuery('(min-width: 480px)');
   const [selectedModalArticle, setSelectedModalArticle] = useState<Article | undefined>();
-  const [selectedCategory, setSelectedCategory] = useState('Aviation');
+  const [selectedCategory, setSelectedCategory] = useState<string>('Aviation');
+  const [articleData, setArticleData] = useState(props.articles);
+
+  const fetchData = async (category: string) => {
+    const newData = await getData(category);
+    return setArticleData(newData);
+  };
+
+  const handleItemClick = (category: string) => {
+    setSelectedCategory(category);
+    fetchData(category);
+    close();
+  };
 
   return (
     <>
@@ -50,14 +63,13 @@ export function Welcome(props: Props) {
       <BurgerMenu
         opened={burgerOpened}
         selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-        close={close}
+        handleItemClick={handleItemClick}
       />
       <div className="card-container">
         <Grid>
-          {props.articles &&
-            props.articles.length > 0 &&
-            props.articles.map((item: Article, index: number) => (
+          {articleData &&
+            articleData.length > 0 &&
+            articleData.map((item: Article, index: number) => (
               <Grid.Col span={{ xs: 12, sm: 6, lg: 3 }} key={index} data-testid="article-card">
                 <NewsCard article={item} setSelectedArticle={() => setSelectedModalArticle(item)} />
               </Grid.Col>
